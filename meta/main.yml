@@ -1,8 +1,7 @@
 ---
 galaxy_info:
   role_name: ctrl_alt_del
-  description: |
-    This ansible role configure ctrl_alt_del hotkeys behaviour.
+  description: dginhoux.ctrl_alt_del
     It support sysvinit and systemd.
   author: Dany GINHOUX
   company: dginhoux
