@@ -3,7 +3,7 @@
 # ctrl_alt_del_state: enable
 ctrl_alt_del_state: disable
 
-
 ctrl_alt_del_systemd_unit: ctrl-alt-del.target
+
 ctrl_alt_del_sysvinit_enable_action: /sbin/shutdown -t3 -r now
 ctrl_alt_del_sysvinit_disable_action: /bin/echo "CTRL-ALT-DEL is disabled"
