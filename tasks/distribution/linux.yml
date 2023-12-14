@@ -6,7 +6,9 @@
   when: ansible_service_mgr == "sysvinit"
   block:
     - name: Sysvinit disable CTRL-ALT-DEL reboot keybinding
-      when: ctrl_alt_del_state == "disable"
+      become: true
+      when:
+        - ctrl_alt_del_state == "disable"
       ansible.builtin.lineinfile:
         dest: /etc/inittab
         regexp: '^ca{{ ":" }}.*{{ ":" }}ctrlaltdel.*'
@@ -14,7 +16,9 @@
         state: present
 
     - name: Sysvinit enable CTRL-ALT-DEL reboot keybinding
-      when: ctrl_alt_del_state == "enable"
+      become: true
+      when:
+        - ctrl_alt_del_state == "enable"
       ansible.builtin.lineinfile:
         dest: /etc/inittab
         regexp: '^ca{{ ":" }}.*{{ ":" }}ctrlaltdel.*'
@@ -29,7 +33,9 @@
   when: ansible_service_mgr == "systemd"
   block:
     - name: Systemd disable CTRL-ALT-DEL reboot keybinding
-      when: ctrl_alt_del_state == "disable"
+      become: true
+      when:
+        - ctrl_alt_del_state == "disable"
       ansible.builtin.systemd:
         name: "{{ ctrl_alt_del_systemd_unit }}"
         enabled: false
@@ -37,7 +43,9 @@
         daemon_reload: true
 
     - name: Systemd enable CTRL-ALT-DEL reboot keybinding
-      when: ctrl_alt_del_state == "enable"
+      become: true
+      when:
+        - ctrl_alt_del_state == "enable"
       ansible.builtin.systemd:
         name: "{{ ctrl_alt_del_systemd_unit }}"
         enabled: true
