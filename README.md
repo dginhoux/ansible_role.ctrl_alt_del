@@ -50,7 +50,7 @@ git clone https://github.com/dginhoux/ansible_role.ctrl_alt_del dginhoux.ctrl_al
 
 ```yaml
 - hosts: all
-  roles:
+  tasks:
     - name: start role dginhoux.ctrl_alt_del
       ansible.builtin.include_role:
         name: dginhoux.ctrl_alt_del
@@ -61,7 +61,9 @@ git clone https://github.com/dginhoux/ansible_role.ctrl_alt_del dginhoux.ctrl_al
 
 #### DEFAULT VARIABLES
 
-Default variables defined in `defaults/main.yml` : 
+Default variables defined in `defaults/main.yml`
+
+#### EXAMPLES VARIABLES
 
 ```yaml
 # ctrl_alt_del_state: enable
